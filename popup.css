@@ -910,6 +910,8 @@ body {
     font-weight: var(--font-weight-medium);
     color: var(--color-text);
     transition: var(--transition);
+    -webkit-user-select: none;
+    -ms-user-select: none;
     user-select: none;
     font-family: var(--font-family-base);
 }
