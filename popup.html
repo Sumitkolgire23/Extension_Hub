@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All-in-One Extension Manager</title>
+    <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+    <div class="extension-manager">
+        <!-- Header with Search and Settings -->
+        <header class="manager-header">
+            <div class="header-top">
+                <h1>Extension Hub</h1>
+                <button id="settingsBtn" class="settings-btn" title="Settings">⚙️</button>
+            </div>
+            <div class="search-container">
+                <input 
+                    type="text" 
+                    id="searchInput" 
+                    class="search-bar" 
+                    placeholder="Search extensions, domains..."
+                >
+                <span class="search-icon">🔍</span>
+            </div>
+        </header>
+
+        <!-- Main Content Area -->
+        <div class="manager-content">
+            <!-- Navigation Tree View -->
+            <nav id="extensionTree" class="extension-tree">
+                <!-- Categories will be loaded here dynamically -->
+                <div class="loading">Loading extension library...</div>
+            </nav>
+
+            <!-- Details Panel -->
+            <div id="detailsPanel" class="details-panel hidden">
+                <div class="details-header">
+                    <button id="closeDetails" class="close-btn">✕</button>
+                    <h2 id="detailsTitle">Extension Details</h2>
+                </div>
+                <div id="detailsContent" class="details-content">
+                    <!-- Extension details will load here -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Settings Panel -->
+        <div id="settingsPanel" class="settings-panel hidden">
+            <div class="settings-header">
+                <h2>Settings & Customization</h2>
+                <button id="closeSettings" class="close-btn">✕</button>
+            </div>
+
+            <div class="settings-content">
+                <!-- Theme Selection -->
+                <section class="settings-section">
+                    <h3>Color Theme</h3>
+                    <div class="theme-selector">
+                        <label class="theme-option">
+                            <input type="radio" name="theme" value="light" checked>
+                            <span class="theme-preview light-theme"></span>
+                            Light
+                        </label>
+                        <label class="theme-option">
+                            <input type="radio" name="theme" value="dark">
+                            <span class="theme-preview dark-theme"></span>
+                            Dark
+                        </label>
+                        <label class="theme-option">
+                            <input type="radio" name="theme" value="ocean">
+                            <span class="theme-preview ocean-theme"></span>
+                            Ocean
+                        </label>
+                    </div>
+                </section>
+
+                <!-- Bookmarks Section -->
+                <section class="settings-section">
+                    <h3>My Bookmarks</h3>
+                    <div id="bookmarksList" class="bookmarks-list">
+                        <p>No bookmarked extensions yet.</p>
+                    </div>
+                </section>
+
+                <!-- Add Custom Extension -->
+                <section class="settings-section">
+                    <h3>Add Custom Extension</h3>
+                    <form id="customExtensionForm" class="custom-form">
+                        <input 
+                            type="text" 
+                            id="customName" 
+                            placeholder="Extension name" 
+                            required
+                        >
+                        <input 
+                            type="url" 
+                            id="customUrl" 
+                            placeholder="Installation link" 
+                            required
+                        >
+                        <select id="customCategory" required>
+                            <option value="">Select Category</option>
+                            <option value="custom">Custom</option>
+                        </select>
+                        <button type="submit" class="btn-primary">Add Extension</button>
+                    </form>
+                </section>
+
+                <!-- Extension Organizer -->
+                <section class="settings-section">
+                    <h3>Organize Extensions</h3>
+                    <button id="createFolderBtn" class="btn-secondary">+ Create Folder</button>
+                    <div id="foldersList" class="folders-list">
+                        <p>No custom folders created.</p>
+                    </div>
+                </section>
+
+                <!-- About Section -->
+                <section class="settings-section">
+                    <h3>About</h3>
+                    <p>All-in-One Extension Manager v1.0</p>
+                    <p>Organize, manage, and launch all your extensions from one place.</p>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <script src="popup.js"></script>
+</body>
+</html>
